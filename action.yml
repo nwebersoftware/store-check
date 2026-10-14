@@ -1,0 +1,16 @@
+name: store-check
+description: Check an Android App Bundle (.aab) or APK for the Google Play 16 KB page-size requirement.
+branding:
+  icon: smartphone
+  color: orange
+
+inputs:
+  path:
+    description: Path to the .aab or .apk file.
+    required: true
+
+runs:
+  using: composite
+  steps:
+    - shell: bash
+      run: node "${{ github.action_path }}/bin/store-check.mjs" "${{ inputs.path }}"

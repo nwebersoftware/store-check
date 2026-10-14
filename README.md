@@ -49,6 +49,16 @@ toolchain: React Native `0.79+` / Expo SDK `53+` ship 16 KB-aligned prebuilts.
 
 More notes: <https://booleanbuild.com/posts/16kb-page-size.html>
 
+## GitHub Action
+
+```yaml
+- uses: nwebersoftware/store-check@main
+  with:
+    path: android/app/build/outputs/bundle/release/app-release.aab
+```
+
+Composite action — no npm install, no setup. Fails the job if a 64-bit lib isn't 16 KB aligned.
+
 ## License
 
 MIT.
