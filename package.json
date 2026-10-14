@@ -1,0 +1,16 @@
+{
+  "name": "store-check",
+  "version": "0.1.0",
+  "description": "Check an Android App Bundle (.aab) or APK for the Google Play 16 KB page-size requirement — dependency-free.",
+  "type": "module",
+  "bin": {
+    "store-check": "bin/store-check.mjs"
+  },
+  "files": ["bin", "src", "README.md", "LICENSE"],
+  "scripts": {
+    "test": "node --test"
+  },
+  "keywords": ["android", "aab", "apk", "play", "16kb", "page-size", "react-native", "expo", "release"],
+  "license": "MIT",
+  "engines": { "node": ">=18" }
+}
