@@ -77,6 +77,15 @@ export function readZip(buf) {
   return { buf, entries };
 }
 
+/** Byte offset of an entry's stored data (past the local header + name + extra). */
+export function entryDataOffset(zip, entry) {
+  const lh = entry.localOff;
+  if (zip.buf.readUInt32LE(lh) !== LFH) throw new Error('bad local file header');
+  const nameLen = zip.buf.readUInt16LE(lh + 26);
+  const extraLen = zip.buf.readUInt16LE(lh + 28);
+  return lh + 30 + nameLen + extraLen;
+}
+
 export function readEntry(zip, name) {
   const e = zip.entries.find((x) => x.name === name);
   if (!e) return null;

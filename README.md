@@ -62,6 +62,21 @@ More notes: <https://booleanbuild.com/posts/16kb-page-size.html>
 
 Composite action — no npm install, no setup. Fails the job if a 64-bit lib isn't 16 KB aligned.
 
+## AAB vs APK
+
+- **`.aab`** — checks `PT_LOAD` alignment. Zip alignment isn't applicable: Google Play repackages the
+  bundle, so it's not your problem.
+- **`.apk`** — checks `PT_LOAD` alignment **and** that stored (uncompressed) `lib/**/*.so` entries land
+  on a 16 KB boundary in the zip — the `zipalign -P 16` requirement. A 16 KB device can't `mmap` a
+  misaligned library, which matters for sideloaded/enterprise APKs. Compressed `.so` entries are
+  reported as a note (they get extracted at load) rather than a failure.
+
+```
+ZIP ALIGNMENT — 1 stored .so entry not 16 KB aligned:
+  arm64-v8a/libreanimated.so  (data offset 0x1a4c8)
+  Fix: run `zipalign -P 16` on the APK (or build with useLegacyPackaging=false).
+```
+
 ## The `--relro` flag (and a known nuance)
 
 Google's documented requirement — and what Play actually checks — is **`PT_LOAD` alignment**, which is
