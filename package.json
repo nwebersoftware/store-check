@@ -1,5 +1,5 @@
 {
-  "name": "store-check",
+  "name": "@njweber/store-check",
   "version": "0.1.0",
   "description": "Check an Android App Bundle (.aab) or APK for the Google Play 16 KB page-size requirement — dependency-free.",
   "type": "module",

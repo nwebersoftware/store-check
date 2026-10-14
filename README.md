@@ -15,9 +15,9 @@ tells you which ones (if any) will get your upload rejected.
 
 ```bash
 # straight from GitHub (works today)
-npx github:nwebersoftware/store-check ./app-release.aab
+npx @njweber/store-check ./app-release.aab
 
-# once published to npm:  npx store-check ./app-release.aab
+# once published to npm:  npx @njweber/store-check ./app-release.aab
 ```
 
 ```
@@ -36,7 +36,7 @@ Exit codes: `0` aligned · `1` not aligned · `2` bad input.
 ## In CI
 
 ```yaml
-- run: npx github:nwebersoftware/store-check ./android/app/build/outputs/bundle/release/app-release.aab
+- run: npx @njweber/store-check ./android/app/build/outputs/bundle/release/app-release.aab
 ```
 
 ## What it checks
