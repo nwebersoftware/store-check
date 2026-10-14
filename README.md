@@ -14,7 +14,10 @@ tells you which ones (if any) will get your upload rejected.
 ## Usage
 
 ```bash
-npx store-check ./app-release.aab
+# straight from GitHub (works today)
+npx github:nwebersoftware/store-check ./app-release.aab
+
+# once published to npm:  npx store-check ./app-release.aab
 ```
 
 ```
@@ -33,7 +36,7 @@ Exit codes: `0` aligned · `1` not aligned · `2` bad input.
 ## In CI
 
 ```yaml
-- run: npx store-check ./android/app/build/outputs/bundle/release/app-release.aab
+- run: npx github:nwebersoftware/store-check ./android/app/build/outputs/bundle/release/app-release.aab
 ```
 
 ## What it checks
