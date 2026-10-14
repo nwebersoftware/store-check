@@ -14,10 +14,7 @@ tells you which ones (if any) will get your upload rejected.
 ## Usage
 
 ```bash
-# straight from GitHub (works today)
 npx @njweber/store-check ./app-release.aab
-
-# once published to npm:  npx @njweber/store-check ./app-release.aab
 ```
 
 ```
