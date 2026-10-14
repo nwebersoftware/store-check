@@ -11,6 +11,10 @@
     "test": "node --test"
   },
   "keywords": ["android", "aab", "apk", "play", "16kb", "page-size", "react-native", "expo", "release"],
+  "repository": { "type": "git", "url": "git+https://github.com/nwebersoftware/store-check.git" },
+  "homepage": "https://github.com/nwebersoftware/store-check#readme",
+  "bugs": { "url": "https://github.com/nwebersoftware/store-check/issues" },
+  "author": "ReleaseReady (a Boolean Bros project)",
   "license": "MIT",
   "engines": { "node": ">=18" }
 }
