@@ -1,5 +1,8 @@
 # store-check
 
+[![npm](https://img.shields.io/npm/v/%40njweber%2Fstore-check)](https://www.npmjs.com/package/@njweber/store-check) [![downloads](https://img.shields.io/npm/dm/%40njweber%2Fstore-check)](https://www.npmjs.com/package/@njweber/store-check) [![CI](https://github.com/nwebersoftware/store-check/actions/workflows/ci.yml/badge.svg)](https://github.com/nwebersoftware/store-check/actions/workflows/ci.yml)
+
+
 **Check an Android App Bundle (`.aab`) or APK for the Google Play 16 KB page-size requirement** —
 without opening Android Studio.
 
