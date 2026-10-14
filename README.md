@@ -62,6 +62,24 @@ More notes: <https://booleanbuild.com/posts/16kb-page-size.html>
 
 Composite action — no npm install, no setup. Fails the job if a 64-bit lib isn't 16 KB aligned.
 
+## The `--relro` flag (and a known nuance)
+
+Google's documented requirement — and what Play actually checks — is **`PT_LOAD` alignment**, which is
+what this tool enforces. Separately, some reports tie Play rejections to the *end* of `PT_GNU_RELRO`
+not being 16 KB aligned (`p_vaddr + p_memsz`, congruent to 0 mod 0x4000) even when every `LOAD`
+segment passes — which is why the official scripts can print "ELF Verification Successful" and the
+upload still fails.
+
+`--relro` reports those. It's **off by default, deliberately**: in practice *nearly every real-world
+library* has an unaligned RELRO end — including `libc++_shared.so` inside apps Google Play has already
+approved — so it's not a useful default signal, and a tool that cries wolf is worse than no tool. It's
+here for the specific case where Play rejects a bundle whose `LOAD` segments all pass. The vendor fix
+is a rebuild with `-Wl,-z,max-page-size=16384`.
+
+```bash
+npx @njweber/store-check ./app-release.aab --relro
+```
+
 ## License
 
 MIT.
