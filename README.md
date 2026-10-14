@@ -50,7 +50,7 @@ For each `lib/<abi>/*.so` it parses the ELF program headers and reports the `p_a
 You can’t fix this by patching the ELF — the alignment has to come from the build. Upgrade your
 toolchain: React Native `0.79+` / Expo SDK `53+` ship 16 KB-aligned prebuilts.
 
-More notes: <https://nwebersoftware.github.io/expo-ship/posts/16kb-page-size.html>
+More notes: <https://booleanbuild.com/posts/16kb-page-size.html>
 
 ## License
 
