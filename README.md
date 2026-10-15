@@ -95,6 +95,12 @@ is a rebuild with `-Wl,-z,max-page-size=16384`.
 npx @njweber/store-check ./app-release.aab --relro
 ```
 
+## Follow along
+
+More of this at **https://booleanbuild.com** — the tools hub, plus write-ups on store
+rejections, CI, build gates, and shipping TestFlight builds without EAS. New posts land
+roughly twice a month. Subscribe: https://booleanbuild.com/#subscribe
+
 ## License
 
 MIT.
